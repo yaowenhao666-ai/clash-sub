@@ -108,6 +108,21 @@ proxies:
       headers:
         Host: clash.2028vip.eu.cc
 
+  - name: "InstaBox-Direct"
+    type: vless
+    server: 8080-agqvngjy3e4zetwkrhx2ukc42m.instabox.tech
+    port: 443
+    uuid: 18511831-319d-4066-b625-c94a4c721b92
+    network: ws
+    tls: true
+    udp: true
+    servername: 8080-agqvngjy3e4zetwkrhx2ukc42m.instabox.tech
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: 8080-agqvngjy3e4zetwkrhx2ukc42m.instabox.tech
+
 proxy-groups:
   - name: "PROXY"
     type: select
@@ -118,6 +133,7 @@ proxy-groups:
       - "CF-3-104.18"
       - "CF-4-104.21"
       - "CF-6-172.67"
+      - "InstaBox-Direct"
       - DIRECT
 
 rules:
