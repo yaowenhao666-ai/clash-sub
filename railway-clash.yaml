@@ -23,7 +23,7 @@ dns:
     - https://cloudflare-dns.com/dns-query
 
 proxies:
-  - name: "Railway-US"
+  - name: "Railway-CF"
     type: vless
     server: clash.2028vip.eu.cc
     port: 443
@@ -37,12 +37,27 @@ proxies:
       path: /ray
       headers:
         Host: clash.2028vip.eu.cc
+  - name: "Railway-Direct"
+    type: vless
+    server: xray-production-2396.up.railway.app
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: xray-production-2396.up.railway.app
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: xray-production-2396.up.railway.app
 
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - "Railway-US"
+      - "Railway-CF"
+      - "Railway-Direct"
       - DIRECT
 
 rules:
