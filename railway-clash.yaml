@@ -1,0 +1,51 @@
+# Clash 配置 - Railway 节点（VLESS+WS+TLS）
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: info
+ipv6: false
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fallback:
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+
+proxies:
+  - name: "Railway-US"
+    type: vless
+    server: xray-production-2396.up.railway.app
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: xray-production-2396.up.railway.app
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: xray-production-2396.up.railway.app
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "Railway-US"
+      - DIRECT
+
+rules:
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
