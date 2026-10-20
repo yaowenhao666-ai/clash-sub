@@ -25,18 +25,18 @@ dns:
 proxies:
   - name: "Railway-US"
     type: vless
-    server: xray-production-2396.up.railway.app
+    server: clash.2028vip.eu.cc
     port: 443
     uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
     network: ws
     tls: true
     udp: true
-    servername: xray-production-2396.up.railway.app
+    servername: clash.2028vip.eu.cc
     client-fingerprint: chrome
     ws-opts:
       path: /ray
       headers:
-        Host: xray-production-2396.up.railway.app
+        Host: clash.2028vip.eu.cc
 
 proxy-groups:
   - name: "PROXY"
