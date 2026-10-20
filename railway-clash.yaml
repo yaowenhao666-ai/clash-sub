@@ -23,20 +23,6 @@ dns:
     - https://cloudflare-dns.com/dns-query
 
 proxies:
-  - name: "Railway-CF"
-    type: vless
-    server: clash.2028vip.eu.cc
-    port: 443
-    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
-    network: ws
-    tls: true
-    udp: true
-    servername: clash.2028vip.eu.cc
-    client-fingerprint: chrome
-    ws-opts:
-      path: /ray
-      headers:
-        Host: clash.2028vip.eu.cc
   - name: "Railway-Direct"
     type: vless
     server: xray-production-2396.up.railway.app
@@ -51,13 +37,117 @@ proxies:
       path: /ray
       headers:
         Host: xray-production-2396.up.railway.app
+  - name: "CF-1-104.16"
+    type: vless
+    server: 104.16.85.20
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
+  - name: "CF-2-104.17"
+    type: vless
+    server: 104.17.62.15
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
+  - name: "CF-3-104.18"
+    type: vless
+    server: 104.18.190.55
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
+  - name: "CF-4-104.21"
+    type: vless
+    server: 104.21.79.54
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
+  - name: "CF-5-172.64"
+    type: vless
+    server: 172.64.120.99
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
+  - name: "CF-6-172.67"
+    type: vless
+    server: 172.67.188.111
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
+  - name: "CF-7-162.159"
+    type: vless
+    server: 162.159.136.60
+    port: 443
+    uuid: 2e260c4a-2a88-4c11-bca6-b451a51bb974
+    network: ws
+    tls: true
+    udp: true
+    servername: clash.2028vip.eu.cc
+    client-fingerprint: chrome
+    ws-opts:
+      path: /ray
+      headers:
+        Host: clash.2028vip.eu.cc
 
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - "Railway-CF"
       - "Railway-Direct"
+      - "CF-1-104.16"
+      - "CF-2-104.17"
+      - "CF-3-104.18"
+      - "CF-4-104.21"
+      - "CF-5-172.64"
+      - "CF-6-172.67"
+      - "CF-7-162.159"
       - DIRECT
 
 rules:
